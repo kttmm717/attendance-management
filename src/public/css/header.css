@@ -1,0 +1,17 @@
+.header {
+    background-color: black;    
+}
+.header__container {
+    max-width: 1540px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul {
+    display: flex;
+}
+li {
+    color: white;
+    padding-right: 20px;
+}

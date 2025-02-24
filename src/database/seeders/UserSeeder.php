@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'name' => '管理者1',
             'email' => 'admin@gmail.com',
             'email_verified_at' => Carbon::now(),
-            'password' => Hash::make('password'),
+            'password' => Hash::make('password123'),
             'role' => 'admin'
         ];
         User::create($param);

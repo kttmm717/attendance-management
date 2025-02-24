@@ -1,0 +1,40 @@
+.container {
+    max-width: 1540px;
+    margin: 0 auto;
+}
+.form {
+    width: 50%;
+    margin: 70px auto;
+}
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 50px;
+}
+.item {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+input {
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 50px;
+}
+button {
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    margin: 20px 0;
+}
+.link {
+    text-align: center;
+    display: block;
+    color: blue;
+}

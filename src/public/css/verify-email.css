@@ -1,0 +1,30 @@
+.container {
+    max-width: 1540px;
+    margin: 200px auto;
+    text-align: center;
+}
+p {
+    font-weight: bold;
+    font-size: 20px;
+}
+.link {
+    display: inline-block;
+    margin: 40px;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #EEE;
+}
+.mail__link {
+    font-size: 16px;
+    font-weight: normal;
+    color: blue;
+    cursor: pointer;
+}
+.message__text {
+    background-color: rgb(161, 204, 161);
+    color: green;
+    padding: 15px;
+}
