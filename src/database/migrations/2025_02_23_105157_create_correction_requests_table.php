@@ -22,8 +22,6 @@ class CreateCorrectionRequestsTable extends Migration
             $table->date('date');
             $table->time('new_clock_in');
             $table->time('new_clock_out');
-            $table->time('new_break_start')->nullable();
-            $table->time('new_break_end')->nullable();
             $table->string('reason');
             $table->timestamps();
         });

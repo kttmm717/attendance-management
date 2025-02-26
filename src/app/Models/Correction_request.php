@@ -17,16 +17,17 @@ class Correction_request extends Model
         'date',
         'new_clock_in',
         'new_clock_out',
-        'new_break_start',
-        'new_break_end',
         'reason'
     ];
 
     // リレーション
     public function user() {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
     public function attendance() {
-        $this->belongsTo(Attendance::class);
+        return $this->belongsTo(Attendance::class);
+    }
+    public function correction_breaks() {
+        return $this->hasMany(CorrectionBreak::class);
     }
 }

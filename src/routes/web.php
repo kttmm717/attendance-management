@@ -7,6 +7,8 @@ use App\Http\Requests\EmailVerificationRequest;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\BreakTimeController;
+use App\Http\Controllers\RequestController;
 
 
 /*
@@ -53,7 +55,15 @@ Route::middleware('auth')->group(function() {
     Route::get('/admin', [AttendanceController::class, 'adminView']);
 });
 
-// 一般ルート
+// 従業員ルート
 Route::middleware('auth','verified')->group(function() {
     Route::get('/staff', [AttendanceController::class, 'staffView']);
+    Route::post('/clock/in', [AttendanceController::class, 'clockIn']);
+    Route::post('/break/start', [BreakTimeController::class, 'breakStart']);
+    Route::post('/break/end', [BreakTimeController::class, 'breakEnd']);
+    Route::post('/clock/out', [AttendanceController::class, 'clockOut']);
+    Route::get('/attendance/list', [AttendanceController::class, 'index']);
+    Route::get('/attendance/{id}', [AttendanceController::class, 'detail']);
+    Route::get('/stamp_correction_request/list', [RequestController::class, 'requestList']);
+    Route::post('/request/{id}', [RequestController::class, 'request']);
 });

@@ -1,0 +1,70 @@
+.container {
+    max-width: 1540px;
+    margin: 0 auto;
+}
+.form {
+    width: 65%;
+    margin: 60px auto;
+}
+.attendance__title {
+    font-size: 24px;
+    font-weight: bold;
+    border-left: 8px solid black;
+    padding-left: 16px;
+    margin-bottom: 70px;
+}
+table {
+    table-layout: fixed;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+tr {
+    height: 80px;
+    border-bottom: 1px solid #ddd;
+}
+tr:last-child {
+    border-bottom: none;
+}
+th {
+    line-height: 80px;
+    font-weight: normal;
+    padding-left: 40px;
+    width: 160px;
+}
+td {
+    line-height: 80px;
+    font-weight: bold;
+    width: 100px;
+    text-align: center;
+}
+input {
+    border: 1px solid #ddd;
+    width: 100px;
+    height: 30px;
+}
+textarea {
+    border: 1px solid #ddd;
+    width: 95%;
+    resize: none;
+    text-align: left;
+    margin: 5px 0;
+    padding: 5px;
+    line-height: normal;
+}
+.text {
+    color: red;
+    text-align: right;
+}
+.btn { 
+    text-align: right;
+    margin-top: 20px;
+}
+.btn button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    letter-spacing: 3px;
+}

@@ -8,9 +8,9 @@
             <ul>
                 @isset(Auth::user()->role)
                     @if(Auth::user()->role === 'staff')
-                        <li><a href="">勤怠</a></li>
-                        <li><a href="">勤怠一覧</a></li>
-                        <li><a href="">申請</a></li>
+                        <li><a href="/staff">勤怠</a></li>
+                        <li><a href="/attendance/list">勤怠一覧</a></li>
+                        <li><a href="/stamp_correction_request/list">申請</a></li>
                         <li>
                             <form action="{{route('logout')}}" method="post">
                                 @csrf
@@ -18,7 +18,7 @@
                             </form>
                         </li>
                     @else
-                        <li><a href="">勤怠一覧</a></li>
+                        <li><a href="/admin">勤怠一覧</a></li>
                         <li><a href="">スタッフ一覧</a></li>
                         <li><a href="">申請一覧</a></li>
                         <li>

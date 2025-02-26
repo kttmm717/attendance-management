@@ -1,8 +1,9 @@
 .header {
-    background-color: black;    
+    background-color: black; 
 }
 .header__container {
     max-width: 1540px;
+    margin: 0 auto;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -14,4 +15,7 @@ ul {
 li {
     color: white;
     padding-right: 20px;
+}
+body {
+    background-color: rgb(237, 236, 236);
 }

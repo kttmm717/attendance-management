@@ -1,4 +1,4 @@
-.form {
+.container {
     max-width: 1540px;
     margin: 140px auto;
     text-align: center;
@@ -20,11 +20,25 @@
     font-size: 50px;
     margin-bottom: 60px;
 }
-.work__btn {
+.btn {
     background-color: black;
     color: white;
     padding: 10px 50px;
     border-radius: 10px;
     font-weight: bold;
     font-size: 20px;
+    margin: 0 20px;
+    letter-spacing: 3px;
+}
+.break {
+    background-color: white;
+    color: black;
+    padding: 10px 38px;
+}
+.text {
+    font-weight: bold;
+    font-size: 20px;
+}
+form {
+    display: inline-block;
 }
