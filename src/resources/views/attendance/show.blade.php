@@ -31,7 +31,11 @@
                 <th>出勤・退勤</th>
                 <td><input type="text" name="clock_in" value="{{$attendance->clock_in->format('H:i')}}"></td>
                 <td>～</td>
-                <td><input type="text" name="clock_out" value="{{$attendance->clock_out->format('H:i')}}"></td>
+                <td>
+                    @if($attendance->clock_out)
+                    <input type="text" name="clock_out" value="{{$attendance->clock_out->format('H:i')}}">
+                    @endif
+                </td>
                 <td></td>
             </tr>
             @foreach($attendance->break_times as $index => $break_time)
@@ -43,8 +47,10 @@
                 </td>
                 <td>～</td>
                 <td>
+                    @if($break_time->break_end)
                     <input type="text" name="break_times[{{$index}}][break_end]"  value="{{$break_time->break_end->format('H:i')}}">
                     <input type="hidden" name="break_times[{{$index}}][original_break_end]"  value="{{$break_time->break_end->format('H:i')}}">
+                    @endif
                 </td>
                 <td></td>
             </tr>
@@ -59,6 +65,8 @@
         </table>
         @if(optional($attendance->correction_request)->status === 'pending')
             <p class="text">＊承認待ちのため修正はできません</p>
+        @elseif(!$attendance->clock_out)
+            <p class="text">＊出勤中のため修正はできません</p>
         @else
             <div class="btn">
                 <button>修正</button>

@@ -29,7 +29,11 @@
             <tr>
                 <td>{{$attendance->date->translatedformat('m/d(D)')}}</td>
                 <td>{{$attendance->clock_in->format('H:i')}}</td>
+                @if($attendance->clock_out)
                 <td>{{$attendance->clock_out->format('H:i')}}</td>
+                @else
+                <td>出勤中</td>
+                @endif
                 <td>{{$attendance->formatedTotalBreakTime()}}</td>
                 <td>{{$attendance->totalAttendanceTime()}}</td>
                 <td><a class="detail__link" href="/attendance/{{$attendance->id}}">詳細</a></td>

@@ -1,0 +1,51 @@
+.container {
+    max-width: 1540px;
+    margin: 0 auto;
+}
+.attendance {
+    width: 65%;
+    margin: 60px auto;
+}
+.attendance__title {
+    font-size: 24px;
+    font-weight: bold;
+    border-left: 8px solid black;
+    padding-left: 16px;
+}
+.page {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    margin: 40px 0;
+    border-radius: 8px;
+}
+.date {
+    font-weight: bold;
+}
+table {
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+}
+th {
+    text-align: center;
+    border-bottom: 3px solid #ddd;
+    padding: 10px;
+    font-weight: normal;
+}
+td {
+    text-align: center;
+    border-top: 3px solid #ddd;
+    padding: 10px;
+}
+.detail__link {
+    font-weight: bold;
+}
+.date {
+    font-weight: bold;
+}
+span {
+    cursor: pointer;
+}
+

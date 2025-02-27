@@ -9,9 +9,6 @@ use Illuminate\Support\Carbon;
 
 class AttendanceController extends Controller
 {
-    public function adminView() {
-        return view('admin.attendance.index');
-    }
     public function staffView() {
         $user = Auth::user();
         return view('attendance.create', compact('user'));
@@ -50,7 +47,7 @@ class AttendanceController extends Controller
                                 ->whereYear('date', now()->year)
                                 ->get();
 
-        return view('attendance.index', compact('attendances'));
+        return view('attendance.index', compact('user', 'attendances'));
     }
     public function detail($id) {
         $attendance = Attendance::find($id);

@@ -19,8 +19,8 @@
                         </li>
                     @else
                         <li><a href="/admin">勤怠一覧</a></li>
-                        <li><a href="">スタッフ一覧</a></li>
-                        <li><a href="">申請一覧</a></li>
+                        <li><a href="/admin/staff/list">スタッフ一覧</a></li>
+                        <li><a href="/stamp_correction_request/list">申請一覧</a></li>
                         <li>
                             <form action="{{route('logout')}}" method="post">
                                 @csrf

@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BreakTimeController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\AdminController;
 
 
 /*
@@ -51,8 +52,12 @@ Route::post('/admin/login', [AuthController::class, 'store']);
 
 
 // 管理者ルート
-Route::middleware('auth')->group(function() {
-    Route::get('/admin', [AttendanceController::class, 'adminView']);
+Route::middleware('auth', 'admin')->group(function() {
+    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin/staff/list', [AdminController::class, 'staffList']);
+    Route::get('/admin/attendance/{id}', [AdminController::class, 'attendance']);
+    Route::get('/stamp_correction_request/list', [RequestController::class, 'requestList']);
+    Route::get('/stamp_correction_request/approve/{attendance_correct_request}', [RequestController::class, 'requestDetail']);
 });
 
 // 従業員ルート

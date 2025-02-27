@@ -49,7 +49,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Attendance::class);
     }
     public function correction_requests() {
-        return $this->hasMany(Correction_request::class);
+        return $this->hasMany(CorrectionRequest::class);
     }
     public function todayAttendance() {
         return $this->hasOne(Attendance::class)->where('date', today());

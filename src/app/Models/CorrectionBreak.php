@@ -14,4 +14,9 @@ class CorrectionBreak extends Model
         'new_break_start',
         'new_break_end'
     ];
+
+    protected $casts = [
+        'new_break_start' => 'datetime',
+        'new_break_end' => 'datetime'
+    ];
 }

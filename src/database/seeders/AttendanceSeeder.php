@@ -16,7 +16,7 @@ class AttendanceSeeder extends Seeder
     {
         $param = [
             'user_id' => 2,
-            'date' => '2025-01-25',
+            'date' => now()->format('Y-m-d'),
             'clock_in' => '08:00:00',
             'clock_out' => '17:00:00',
             'status' => 'off'
@@ -25,7 +25,7 @@ class AttendanceSeeder extends Seeder
 
         $param = [
             'user_id' => 2,
-            'date' => '2025-02-25',
+            'date' => now()->subDay()->format('Y-m-d'),
             'clock_in' => '10:00:00',
             'clock_out' => '19:00:00',
             'status' => 'off'
@@ -34,7 +34,7 @@ class AttendanceSeeder extends Seeder
 
         $param = [
             'user_id' => 3,
-            'date' => '2025-01-26',
+            'date' => now()->format('Y-m-d'),
             'clock_in' => '08:00:00',
             'clock_out' => '17:00:00',
             'status' => 'off'
@@ -43,7 +43,7 @@ class AttendanceSeeder extends Seeder
 
         $param = [
             'user_id' => 3,
-            'date' => '2025-02-26',
+            'date' => now()->subDay()->format('Y-m-d'),
             'clock_in' => '10:00:00',
             'clock_out' => '19:00:00',
             'status' => 'off'
@@ -52,7 +52,7 @@ class AttendanceSeeder extends Seeder
 
         $param = [
             'user_id' => 4,
-            'date' => '2025-01-27',
+            'date' => now()->format('Y-m-d'),
             'clock_in' => '08:00:00',
             'clock_out' => '17:00:00',
             'status' => 'off'
@@ -61,7 +61,7 @@ class AttendanceSeeder extends Seeder
 
         $param = [
             'user_id' => 4,
-            'date' => '2025-02-27',
+            'date' => now()->subDay()->format('Y-m-d'),
             'clock_in' => '10:00:00',
             'clock_out' => '19:00:00',
             'status' => 'off'
@@ -70,7 +70,7 @@ class AttendanceSeeder extends Seeder
         
         $param = [
             'user_id' => 5,
-            'date' => '2025-01-28',
+            'date' => now()->format('Y-m-d'),
             'clock_in' => '08:00:00',
             'clock_out' => '17:00:00',
             'status' => 'off'
@@ -79,7 +79,7 @@ class AttendanceSeeder extends Seeder
 
         $param = [
             'user_id' => 5,
-            'date' => '2025-02-28',
+            'date' => now()->subDay()->format('Y-m-d'),
             'clock_in' => '10:00:00',
             'clock_out' => '19:00:00',
             'status' => 'off'

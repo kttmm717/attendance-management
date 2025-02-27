@@ -2,43 +2,33 @@
     max-width: 1540px;
     margin: 0 auto;
 }
-.requests {
+.staffs {
     width: 65%;
     margin: 60px auto;
 }
-.request__title {
+.staffs__title {
     font-size: 24px;
     font-weight: bold;
     border-left: 8px solid black;
     padding-left: 16px;
-    margin-bottom: 70px;
-}
-.border a {
-    padding: 0 30px;
-}
-.border {
-    border-bottom: 1px solid black;
-    padding-bottom: 10px;
 }
 table {
-    width: 100%;
     background-color: white;
+    margin-top: 60px;
     border-radius: 10px;
-    margin-top: 40px;
+    width: 100%;
 }
-tr {
-    padding: 10px;
-    font-weight: normal;
+th {
     border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-weight: normal;
+    padding: 10px;
 }
-tr:last-child {
-    border-bottom: none;
-}
-th, td {
+td {
+    border-top: 1px solid #ddd;
     text-align: center;
     padding: 10px;
-    font-weight: normal;
 }
-.detail {
+.link {
     font-weight: bold;
 }

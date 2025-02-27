@@ -29,7 +29,7 @@ class Attendance extends Model
         return $this->belongsTo(User::class);
     }
     public function correction_request() {
-        return $this->hasOne(Correction_request::class);
+        return $this->hasOne(CorrectionRequest::class);
     }
     public function break_times() {
         return $this->hasMany(BreakTime::class);

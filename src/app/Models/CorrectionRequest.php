@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Correction_request extends Model
+class CorrectionRequest extends Model
 {
     use HasFactory;
 
@@ -18,6 +18,13 @@ class Correction_request extends Model
         'new_clock_in',
         'new_clock_out',
         'reason'
+    ];
+
+    protected $casts = [
+        'requested_at' => 'date',
+        'date' => 'date',
+        'new_clock_in' => 'datetime',
+        'new_clock_out' => 'datetime'
     ];
 
     // リレーション
