@@ -12,8 +12,8 @@
     <div class="requests">
         <h2 class="request__title">申請一覧</h2>
         <div class="border">
-            <a href="">承認待ち</a>
-            <a href="">承認済み</a>
+            <a href="{{route('request', ['tab'=>'pending'])}}">承認待ち</a>
+            <a href="{{route('request', ['tab'=>'approved'])}}">承認済み</a>
         </div>
         <table>
             <tr>

@@ -37,7 +37,7 @@ td {
     line-height: 80px;
     font-weight: bold;
     width: 100px;
-    text-align: center;
+    padding: 0 20px;
 }
 input {
     border: 1px solid #ddd;
@@ -57,14 +57,25 @@ textarea {
     color: red;
     text-align: right;
 }
-.btn { 
+.approve__btn,
+.approved__btn { 
     text-align: right;
     margin-top: 20px;
 }
-.btn button {
+.approve__btn button {
     background-color: black;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     letter-spacing: 3px;
+}
+.approved__btn button {
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    letter-spacing: 3px;
+}
+.between {
+    padding-left: 40px;
 }

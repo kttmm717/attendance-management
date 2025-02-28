@@ -56,8 +56,10 @@ Route::middleware('auth', 'admin')->group(function() {
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/admin/staff/list', [AdminController::class, 'staffList']);
     Route::get('/admin/attendance/{id}', [AdminController::class, 'attendance']);
-    Route::get('/stamp_correction_request/list', [RequestController::class, 'requestList']);
+    Route::get('/stamp_correction_request/list', [RequestController::class, 'requestList'])->name('request');
     Route::get('/stamp_correction_request/approve/{attendance_correct_request}', [RequestController::class, 'requestDetail']);
+    Route::post('/stamp_correction_request/approve/{attendance_correct_request}', [RequestController::class, 'approve']);
+    Route::get('/admin/attendance/staff/{id}', [AdminController::class, 'staffAttendance']);
 });
 
 // 従業員ルート
@@ -69,6 +71,6 @@ Route::middleware('auth','verified')->group(function() {
     Route::post('/clock/out', [AttendanceController::class, 'clockOut']);
     Route::get('/attendance/list', [AttendanceController::class, 'index']);
     Route::get('/attendance/{id}', [AttendanceController::class, 'detail']);
-    Route::get('/stamp_correction_request/list', [RequestController::class, 'requestList']);
+    Route::get('/stamp_correction_request/list', [RequestController::class, 'requestList'])->name('request');
     Route::post('/request/{id}', [RequestController::class, 'request']);
 });

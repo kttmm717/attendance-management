@@ -39,15 +39,18 @@ class RequestController extends Controller
         return redirect()->back();
     }
 
-    public function requestList() {
+    public function requestList(Request $request) {
         $user = Auth::user();
+        $tab = $request->query('tab', 'pending');
+        $query = CorrectionRequest::query();
         
-        if($user->role === 'admin') {
-            $correction_requests = CorrectionRequest::all();
-        }else {
-            $correction_requests = CorrectionRequest::where('user_id', $user->id)->get();
+        if ($user->role === 'admin') {
+            $correction_requests = $query->where('status', $tab)->get();
+        } else {
+            $correction_requests = $query->where('status', $tab)
+                                        ->where('user_id', $user->id)
+                                        ->get();
         }
-
         return view('requests.index', compact('user', 'correction_requests'));
     }
 
@@ -56,5 +59,13 @@ class RequestController extends Controller
         $correction_breaks = CorrectionBreak::where('correction_request_id', $correction_request->id)->get();
         $user = $correction_request->user;
         return view('admin.requests.approval', compact('correction_request','correction_breaks', 'user'));
+    }
+
+    public function approve($attendance_correct_request) {
+        $correction_request = CorrectionRequest::find($attendance_correct_request);
+        $correction_request->update([
+            'status' => 'approved'
+        ]);
+        return redirect('back');
     }
 }

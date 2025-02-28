@@ -9,7 +9,7 @@
 @section('content')
 @include('components.header')
 <div class="container">
-    <form class="form" action="">
+    <form class="form" action="/stamp_correction_request/approve/{{$correction_request->id}}" method="post">
         @csrf
         <h2 class="attendance__title">勤怠詳細</h2>
         <table>
@@ -30,7 +30,7 @@
             <tr>
                 <th>出勤・退勤</th>
                 <td>{{$correction_request->new_clock_in->format('H:i')}}</td>
-                <td>～</td>
+                <td class="between">～</td>
                 <td>{{$correction_request->new_clock_out->format('H:i')}}</td>
                 <td></td>
             </tr>
@@ -38,7 +38,7 @@
             <tr>
                 <th>休憩</th>
                 <td>{{$correction_break->new_break_start->format('H:i')}}</td>
-                <td>～</td>
+                <td class="between">～</td>
                 <td>{{$correction_break->new_break_end->format('H:i')}}</td>
                 <td></td>
             </tr>
@@ -49,9 +49,15 @@
                 <td></td>
             </tr>
         </table>
-        <div class="btn">
+        @if($correction_request->status === 'pending')
+        <div class="approve__btn">
             <button>承認</button>
         </div>
+        @else
+        <div class="approved__btn">
+            <button disabled>承認済み</button>
+        </div>
+        @endif
     </form>
 </div>
 @endsection
