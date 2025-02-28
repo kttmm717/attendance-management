@@ -65,6 +65,8 @@
         </table>
         @if(optional($attendance->correction_request)->status === 'pending')
             <p class="text">＊承認待ちのため修正はできません</p>
+        @elseif(optional($attendance->correction_request)->status === 'approved')
+            <p class="text">＊承認済みです</p>
         @elseif(!$attendance->clock_out)
             <p class="text">＊出勤中のため修正はできません</p>
         @else

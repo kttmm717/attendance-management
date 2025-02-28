@@ -7,6 +7,7 @@ use App\Models\Attendance;
 use App\Models\CorrectionBreak;
 use Illuminate\Support\Facades\Auth;
 use App\Models\CorrectionRequest;
+use App\Models\BreakTime;
 
 
 class RequestController extends Controller
@@ -36,7 +37,7 @@ class RequestController extends Controller
                 ]);
             }
         }        
-        return redirect()->back();
+        return back();
     }
 
     public function requestList(Request $request) {
@@ -62,10 +63,34 @@ class RequestController extends Controller
     }
 
     public function approve($attendance_correct_request) {
+        // 修正申請のレコードを取得、承認済に
         $correction_request = CorrectionRequest::find($attendance_correct_request);
         $correction_request->update([
             'status' => 'approved'
         ]);
-        return redirect('back');
+
+        // 修正申請のレコードから対象の勤怠レコードを見つけて新しい出退勤時間に変更
+        $attendance = Attendance::find($correction_request->attendance_id);
+        $attendance->update([
+            'clock_in' => $correction_request->new_clock_in,
+            'clock_out' => $correction_request->new_clock_out,
+        ]);
+
+
+        // 休憩の修正申請のレコードを取得
+        $correction_breaks = CorrectionBreak::where('correction_request_id', $correction_request->id)->get();
+
+        // 勤怠レコードから対象の休憩レコードを見つけて新しい休憩時間に変更
+        $break_times = BreakTime::where('attendance_id', $attendance->id)->get();
+        foreach($break_times as $index => $break) {
+            if(isset($correction_breaks[$index])) {
+                $break->update([
+                    'break_start' => $correction_breaks[$index]->new_break_start,
+                    'break_end' => $correction_breaks[$index]->new_break_end
+                ]);
+            }
+        }
+
+        return back();
     }
 }

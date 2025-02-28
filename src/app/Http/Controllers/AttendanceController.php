@@ -40,15 +40,23 @@ class AttendanceController extends Controller
         ]);
         return back();
     }
-    public function index() {
-        $user = Auth::user();
-        $attendances = Attendance::where('user_id', $user->id)
-                                ->whereMonth('date', now()->month)
-                                ->whereYear('date', now()->year)
-                                ->get();
+    public function index(Request $request) {
+    $user = Auth::user();
+    $currentMonth = $request->query('month', now()->format('Y-m'));
 
-        return view('attendance.index', compact('user', 'attendances'));
+    try {
+        $currentMonth = Carbon::createFromFormat('Y-m', $currentMonth);
+    } catch (\Exception $e) {
+        abort(404);
     }
+    $attendances = Attendance::where('user_id', $user->id)
+        ->whereYear('date', $currentMonth->year)
+        ->whereMonth('date', $currentMonth->month)
+        ->get();
+
+    return view('attendance.index', compact('user', 'attendances', 'currentMonth'));
+    }
+
     public function detail($id) {
         $attendance = Attendance::find($id);
         return view('attendance.show', compact('attendance'));

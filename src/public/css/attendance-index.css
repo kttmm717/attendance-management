@@ -42,3 +42,6 @@ td {
 .detail__link {
     font-weight: bold;
 }
+span {
+    cursor: pointer;
+}

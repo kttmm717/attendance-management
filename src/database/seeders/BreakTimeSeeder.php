@@ -70,5 +70,33 @@ class BreakTimeSeeder extends Seeder
         ];
         BreakTime::create($param);
 
+        $param = [
+            'attendance_id' => 9,
+            'break_start' => '12:00:00',
+            'break_end' => '13:00:00'
+        ];
+        BreakTime::create($param);
+
+        $param = [
+            'attendance_id' => 10,
+            'break_start' => '12:00:00',
+            'break_end' => '13:00:00'
+        ];
+        BreakTime::create($param);
+
+        $param = [
+            'attendance_id' => 11,
+            'break_start' => '12:00:00',
+            'break_end' => '13:00:00'
+        ];
+        BreakTime::create($param);
+
+        $param = [
+            'attendance_id' => 12,
+            'break_start' => '12:00:00',
+            'break_end' => '13:00:00'
+        ];
+        BreakTime::create($param);
+
     }
 }

@@ -69,7 +69,7 @@ Route::middleware('auth','verified')->group(function() {
     Route::post('/break/start', [BreakTimeController::class, 'breakStart']);
     Route::post('/break/end', [BreakTimeController::class, 'breakEnd']);
     Route::post('/clock/out', [AttendanceController::class, 'clockOut']);
-    Route::get('/attendance/list', [AttendanceController::class, 'index']);
+    Route::get('/attendance/list', [AttendanceController::class, 'index'])->name('attendance.index');
     Route::get('/attendance/{id}', [AttendanceController::class, 'detail']);
     Route::get('/stamp_correction_request/list', [RequestController::class, 'requestList'])->name('request');
     Route::post('/request/{id}', [RequestController::class, 'request']);

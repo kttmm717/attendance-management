@@ -12,9 +12,9 @@
     <div class="attendance">
         <h2 class="attendance__title">勤怠一覧</h2>
         <div class="page">
-            <p>↼前月</p>
-            <p class="date">2025/02</p>
-            <p>翌月⇀</p>
+            <span onclick="changeMonth(-1)">↼ 前月</span>
+            <p class="date">{{ $currentMonth->format('Y/m') }}</p>
+            <span onclick="changeMonth(1)">翌月 ⇀</span>
         </div>
         <table>
             <tr>
@@ -42,5 +42,14 @@
         </table>
     </div>
 </div>
+<script>
+    function changeMonth(offset) {
+        let currentMonth = "{{ $currentMonth->format('Y-m') }}"; // 現在の年月
+        let date = new Date(currentMonth + "-01");
+        date.setMonth(date.getMonth() + offset);
+        let newMonth = date.toISOString().slice(0, 7);
 
+        window.location.href = "{{ route('attendance.index') }}?month=" + newMonth;
+    }
+</script>
 @endsection
