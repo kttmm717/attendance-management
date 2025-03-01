@@ -68,3 +68,10 @@ textarea {
     border-radius: 5px;
     letter-spacing: 3px;
 }
+.error__ul {
+    display: flex;
+    flex-direction: column;
+}
+.error__li {
+    color: red;
+}

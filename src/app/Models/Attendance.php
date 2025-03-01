@@ -16,7 +16,8 @@ class Attendance extends Model
         'date',
         'clock_in',
         'clock_out',
-        'status'
+        'status',
+        'admin_correction_reason'
     ];
     protected $casts = [
         'date' => 'date',

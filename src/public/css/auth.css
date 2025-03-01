@@ -38,3 +38,6 @@ button {
     display: block;
     color: blue;
 }
+.error {
+    color: red;
+}

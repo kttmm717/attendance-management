@@ -9,9 +9,16 @@
 @section('content')
 @include('components.header')
 <div class="container">
-    <form class="form" action="">
+    <form class="form" action="/correction/{{$attendance->id}}" method="post">
         @csrf
         <h2 class="attendance__title">勤怠詳細</h2>
+        @if(count($errors)>0)
+            <ul class="error__ul">
+                @foreach($errors->all() as $error)
+                <li class="error__li">{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
         <table>
             <tr>
                 <th>名前</th>
@@ -63,9 +70,13 @@
                 <td></td>
             </tr>
         </table>
+        @if(optional($attendance->correction_request)->status === 'approved')
+            <p class="text">＊承認済みです</p>
+        @else
         <div class="btn">
             <button>修正</button>
         </div>
+        @endif
     </form>
 </div>
 @endsection

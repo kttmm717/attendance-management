@@ -8,15 +8,16 @@ use App\Models\CorrectionBreak;
 use Illuminate\Support\Facades\Auth;
 use App\Models\CorrectionRequest;
 use App\Models\BreakTime;
+use App\Http\Requests\AttendanceCorrectionRequest;
 
 
 class RequestController extends Controller
 {
-    public function request($id, Request $request) {
+    public function request($id, AttendanceCorrectionRequest $request) {
         $attendance = Attendance::find($id);
 
         $correctionRequest = CorrectionRequest::create([
-            'user_id' => Auth::user()->id,
+            'user_id' => $attendance->user_id,
             'attendance_id' => $id,
             'requested_at' => now(),
             'status' => 'pending',
@@ -37,7 +38,7 @@ class RequestController extends Controller
                 ]);
             }
         }        
-        return back();
+        return redirect('/stamp_correction_request/list/tab=approved');
     }
 
     public function requestList(Request $request) {
@@ -76,7 +77,6 @@ class RequestController extends Controller
             'clock_out' => $correction_request->new_clock_out,
         ]);
 
-
         // 休憩の修正申請のレコードを取得
         $correction_breaks = CorrectionBreak::where('correction_request_id', $correction_request->id)->get();
 
@@ -90,7 +90,6 @@ class RequestController extends Controller
                 ]);
             }
         }
-
         return back();
     }
 }

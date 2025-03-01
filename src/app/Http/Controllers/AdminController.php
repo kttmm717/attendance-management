@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\User;
 use Carbon\Carbon;
+use App\Http\Requests\AttendanceCorrectionRequest;
+use App\Models\BreakTime;
 
 class AdminController extends Controller
 {
@@ -35,5 +37,24 @@ class AdminController extends Controller
         ->get();
 
     return view('admin.staff.attendance', compact('user', 'attendances', 'month'));
+    }
+    public function correction($id, AttendanceCorrectionRequest $request) {
+        $attendance = Attendance::find($id);
+        $break_times = BreakTime::where('attendance_id', $attendance->id)->get();
+
+        $attendance->update([
+            'clock_in' => $request->clock_in,
+            'clock_out' => $request->clock_out,
+            'admin_correction_reason' => $request->reason,
+        ]);
+        foreach($break_times as $index => $break) {
+            if(isset($correction_breaks[$index])) {
+                $break->update([
+                    'break_start' => $correction_breaks[$index]->new_break_start,
+                    'break_end' => $correction_breaks[$index]->new_break_end
+                ]);
+            }
+        }
+        return redirect()->route('request', ['tab' => 'approved']);
     }
 }

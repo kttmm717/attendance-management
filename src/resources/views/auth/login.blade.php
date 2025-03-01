@@ -13,15 +13,17 @@
         @csrf
         <h2 class="title">ログイン</h2>
         <p class="item">メールアドレス</p>
-        <input type="text" name="email">
         @error('email')
             <p class="error">{{$message}}</p>
         @enderror
+        <input type="text" name="email">
+        
         <p class="item">パスワード</p>
-        <input type="password" name="password">
         @error('password')
             <p class="error">{{$message}}</p>
         @enderror
+        <input type="password" name="password">
+        
         <button>ログインする</button>
         <a class="link" href="/register">会員登録はこちら</a>
     </form>

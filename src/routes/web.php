@@ -60,6 +60,7 @@ Route::middleware('auth', 'admin')->group(function() {
     Route::get('/stamp_correction_request/approve/{attendance_correct_request}', [RequestController::class, 'requestDetail']);
     Route::post('/stamp_correction_request/approve/{attendance_correct_request}', [RequestController::class, 'approve']);
     Route::get('/admin/attendance/staff/{id}', [AdminController::class, 'staffAttendance']);
+    Route::post('/correction/{id}', [AdminController::class, 'correction']);
 });
 
 // 従業員ルート

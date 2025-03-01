@@ -12,6 +12,13 @@
     <form class="form" action="/request/{{$attendance->id}}" method="post">
         @csrf
         <h2 class="attendance__title">勤怠詳細</h2>
+        @if(count($errors)>0)
+            <ul class="error__ul">
+                @foreach($errors->all() as $error)
+                <li class="error__li">{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
         <table>
             <tr>
                 <th>名前</th>
