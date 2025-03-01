@@ -59,7 +59,9 @@
                     <input type="hidden" name="break_times[{{$index}}][original_break_end]"  value="{{$break_time->break_end->format('H:i')}}">
                     @endif
                 </td>
-                <td></td>
+                <td>
+                <input type="hidden" name="break_times[{{$index}}][id]" value="{{$break_time->id}}">
+                </td>
             </tr>
             @endforeach
             <tr>
@@ -70,13 +72,13 @@
                 <td></td>
             </tr>
         </table>
-        @if(optional($attendance->correction_request)->status === 'approved')
-            <p class="text">＊承認済みです</p>
-        @else
+        @if(!$attendance->clock_out)
+        <p class="text">出勤中です</p>
+        @else    
         <div class="btn">
             <button>修正</button>
         </div>
-        @endif
+        @endif      
     </form>
 </div>
 @endsection

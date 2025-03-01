@@ -38,7 +38,7 @@ class RequestController extends Controller
                 ]);
             }
         }        
-        return redirect('/stamp_correction_request/list/tab=approved');
+        return back();
     }
 
     public function requestList(Request $request) {

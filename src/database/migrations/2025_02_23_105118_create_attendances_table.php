@@ -20,7 +20,6 @@ class CreateAttendancesTable extends Migration
             $table->time('clock_in');
             $table->time('clock_out')->nullable();
             $table->enum('status', ['off', 'working', 'break', 'finished'])->default('off');
-            $table->string('admin_correction_reason')->nullable();
             $table->timestamps();
         });
     }

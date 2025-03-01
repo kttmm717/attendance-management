@@ -68,3 +68,10 @@ textarea {
     color: red;
     text-align: right;
 }
+.error__ul {
+    display: flex;
+    flex-direction: column;
+}
+.error__li {
+    color: red;
+}
