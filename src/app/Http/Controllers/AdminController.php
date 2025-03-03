@@ -84,7 +84,7 @@ class AdminController extends Controller
 
         foreach ($break_times as $break_time) { //元々の休憩レコードをループ
             $correction_break = $correction_breaks->firstWhere('break_time_id', $break_time->id);
-            //$correction_breaksテーブルのbreak_time_idカラムと$break_timeのidが一致したら変数$correction_breakに格納
+            
             if ($correction_break) {
                 $break_time->update([
                     'break_start' => $correction_break->new_break_start,

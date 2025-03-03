@@ -10,12 +10,12 @@
 @include('components.header')
 <div class="container">
     <div class="attendance">
-    <h2 class="attendance__title">{{$user->name}}さんの勤怠</h2>
-    <div class="page">
-        <span class="prev-month" onclick="changeMonth(-1)">↼前月</span>
-        <p class="date">{{ $month }}</p>
-        <span class="next-month" onclick="changeMonth(1)">翌月⇀</span>
-    </div>
+        <h2 class="attendance__title">{{$user->name}}さんの勤怠</h2>
+        <div class="page">
+            <span class="prev-month" onclick="changeMonth(-1)">↼前月</span>
+            <p class="date">{{ $month }}</p>
+            <span class="next-month" onclick="changeMonth(1)">翌月⇀</span>
+        </div>
         <table>
             <tr>
                 <th>日付</th>
@@ -40,6 +40,9 @@
             </tr>
             @endforeach
         </table>
+        <div class="export__btn">
+            <a href="/export">CSV出力</a>
+        </div>
     </div>
 </div>
 <script>

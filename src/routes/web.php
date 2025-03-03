@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BreakTimeController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ExportController;
 
 
 /*
@@ -61,6 +62,7 @@ Route::middleware('auth', 'admin')->group(function() {
     Route::post('/stamp_correction_request/approve/{attendance_correct_request}', [RequestController::class, 'approve']);
     Route::get('/admin/attendance/staff/{id}', [AdminController::class, 'staffAttendance']);
     Route::post('/correction/{id}', [AdminController::class, 'correction']);
+    Route::get('/export', [ExportController::class, 'exportCsv']);
 });
 
 // 従業員ルート
