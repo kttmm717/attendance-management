@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
+use App\Models\User;
 
 class AttendanceFactory extends Factory
 {
@@ -19,7 +20,7 @@ class AttendanceFactory extends Factory
         $status = $this->faker->randomElement(['working', 'break', 'finished', 'off']);      
 
         return [
-            'user_id' => 1,
+            'user_id' => User::factory(),
             'date' => Carbon::today()->format('Y-m-d'),
             'clock_in' => $clockIn,
             'clock_out' => $status === 'off' ? $clockOut : null,

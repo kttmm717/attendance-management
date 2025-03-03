@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\User;
 
-class WorkTest extends TestCase
+class ClockInTest extends TestCase
 {
     use RefreshDatabase;
 

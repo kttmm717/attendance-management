@@ -32,6 +32,7 @@ class StatusTest extends TestCase
             'role' => 'staff'
         ]);
         Attendance::factory()->create([
+            'user_id' => $user->id,
             'status' => 'working'
         ]);
 
@@ -46,6 +47,7 @@ class StatusTest extends TestCase
             'role' => 'staff'
         ]);
         Attendance::factory()->create([
+            'user_id' => $user->id,
             'status' => 'break'
         ]);
 
@@ -60,6 +62,7 @@ class StatusTest extends TestCase
             'role' => 'staff'
         ]);
         Attendance::factory()->create([
+            'user_id' => $user->id,
             'status' => 'off'
         ]);
 
