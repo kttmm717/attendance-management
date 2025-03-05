@@ -25,8 +25,8 @@ class ExportController extends Controller
         foreach ($attendances as $attendance) {
             fputcsv($csvData, mb_convert_encoding([
                 $attendance->date->format('Y-m-d'),
-                $attendance->clock_in ? $attendance->clock_in->format('H:i') : '出勤中',
-                $attendance->clock_out ? $attendance->clock_out->format('H:i') : '出勤中',
+                $attendance->clock_in ? $attendance->clock_in->format('H:i') : '',
+                $attendance->clock_out ? $attendance->clock_out->format('H:i') : '',
                 $attendance->formatedTotalBreakTime(),
                 $attendance->totalAttendanceTime(),
             ], 'SJIS-WIN', 'UTF-8'));

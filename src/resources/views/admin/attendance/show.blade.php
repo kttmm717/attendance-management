@@ -55,7 +55,7 @@
                 <td>～</td>
                 <td>
                     @if($break_time->break_end)
-                    <input type="text" name="break_times[{{$index}}][break_end]"  value="{{$break_time->break_end->format('H:i')}}">
+                    <input type="text" name="break_times[{{$index}}][break_end]" value="{{$break_time->break_end->format('H:i')}}">
                     <input type="hidden" name="break_times[{{$index}}][original_break_end]"  value="{{$break_time->break_end->format('H:i')}}">
                     @endif
                 </td>

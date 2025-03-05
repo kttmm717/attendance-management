@@ -19,6 +19,13 @@ MAIL_FROM_ADDRESSは任意のメールアドレスを入力してください。
 ## ER図
 ![alt](er.png)
 
+## テストアカウント
+管理者ログインの際はこちらのアカウントを使用してください。<br>
+
+name:  管理者1<br>
+email: admin@gmail.com<br>
+password: password123　　　　
+
 ## PHPUnitを利用したテストに関して
 以下のコマンド:  
 ```

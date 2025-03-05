@@ -16,13 +16,13 @@
         @error('name')
             <p class="error">{{$message}}</p>
         @enderror
-        <input type="text" name="name">
+        <input type="text" name="name" value="{{old('name')}}">
         
         <p class="item">メールアドレス</p>
         @error('email')
             <p class="error">{{$message}}</p>
         @enderror
-        <input type="text" name="email">
+        <input type="text" name="email" value="{{old('email')}}">
         
         <p class="item">パスワード</p>
         @error('password')

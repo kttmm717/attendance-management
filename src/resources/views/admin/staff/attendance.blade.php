@@ -32,7 +32,7 @@
                 @if($attendance->clock_out)
                 <td>{{$attendance->clock_out->format('H:i')}}</td>
                 @else
-                <td>出勤中</td>
+                <td></td>
                 @endif
                 <td>{{$attendance->formatedTotalBreakTime()}}</td>
                 <td>{{$attendance->totalAttendanceTime()}}</td>

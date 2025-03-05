@@ -26,18 +26,21 @@ class RequestController extends Controller
             'new_clock_out' => $request->clock_out,
             'reason' => $request->reason
         ]);
-        foreach ($request->break_times as $break_time) {
-            if (
-                $break_time['break_start'] !== $break_time['original_break_start'] ||
-                $break_time['break_end'] !== $break_time['original_break_end']
-            ) {
-                CorrectionBreak::create([
-                    'correction_request_id' => $correctionRequest->id,
-                    'new_break_start' => $break_time['break_start'],
-                    'new_break_end' => $break_time['break_end'],
-                ]);
-            }
-        }        
+        if(!empty($request->break_times)) {
+            foreach ($request->break_times as $break_time) {
+                if (
+                    $break_time['break_start'] !== $break_time['original_break_start'] ||
+                    $break_time['break_end'] !== $break_time['original_break_end']
+                ) {
+                    CorrectionBreak::create([
+                        'correction_request_id' => $correctionRequest->id,
+                        'new_break_start' => $break_time['break_start'],
+                        'new_break_end' => $break_time['break_end'],
+                    ]);
+                }
+            } 
+        }
+               
         return back();
     }
 
