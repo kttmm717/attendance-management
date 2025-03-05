@@ -62,7 +62,7 @@ Route::middleware('auth', 'admin')->group(function() {
     Route::post('/stamp_correction_request/approve/{attendance_correct_request}', [RequestController::class, 'approve']);
     Route::get('/admin/attendance/staff/{id}', [AdminController::class, 'staffAttendance']);
     Route::post('/correction/{id}', [AdminController::class, 'correction']);
-    Route::get('/export', [ExportController::class, 'exportCsv']);
+    Route::get('/export', [ExportController::class, 'export'])->name('export');
 });
 
 // 従業員ルート

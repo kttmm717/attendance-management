@@ -53,12 +53,18 @@ class AdminAttendanceListTest extends TestCase
             'role' => 'admin'
         ]);
 
+        $attendances = Attendance::where('date', Carbon::now()->subDay()->toDateString())->get();
+
         $yesterday = Carbon::now()->subDay();
-        $farmatedYesterday = $yesterday->format('Y-m-d');
+        $formattedYesterday = $yesterday->format('Y-m-d');
 
         /**@var User $user */
-        $response = $this->actingAs($user)->get("/admin?date=$farmatedYesterday");
-        $response->assertSee($farmatedYesterday);
+        $response = $this->actingAs($user)->get("/admin?date=$formattedYesterday");
+        foreach($attendances as $attendance) {
+            $response->assertSee($attendance->user->name);
+            $response->assertSee($attendance->clock_in->format('H:i'));
+            $response->assertSee($attendance->clock_out->format('H:i'));
+        }
     }
 
     // 「翌日」を押下したときに前の日の勤怠情報が表示されるか
@@ -67,11 +73,23 @@ class AdminAttendanceListTest extends TestCase
             'role' => 'admin'
         ]);
 
+        $attendances = Attendance::factory()->count(3)->create([
+            'date' => Carbon::now()->addDay()->format('Y-m-d'),
+            'clock_in' => '10:00',
+            'clock_out' => '19:00',
+            'status' => 'off'
+        ]);
+
         $tomorrow = Carbon::now()->addDay();
-        $farmatedTomorrow = $tomorrow->format('Y-m-d');
+        $formattedTomorrow = $tomorrow->format('Y-m-d');
 
         /**@var User $user */
-        $response = $this->actingAs($user)->get("/admin?date=$farmatedTomorrow");
-        $response->assertSee($farmatedTomorrow);
+        $response = $this->actingAs($user)->get("/admin?date=$formattedTomorrow");
+        
+        foreach($attendances as $attendance) {
+            $response->assertSee($attendance->user->name);
+            $response->assertSee($attendance->clock_in->format('H:i'));
+            $response->assertSee($attendance->clock_out->format('H:i'));
+        }
     } 
 }

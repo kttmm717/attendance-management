@@ -41,7 +41,7 @@
             @endforeach
         </table>
         <div class="export__btn">
-            <a href="/export">CSV出力</a>
+            <a href="{{route('export', ['month' => $month, 'user_id' => $user->id])}}">CSV出力</a>
         </div>
     </div>
 </div>
