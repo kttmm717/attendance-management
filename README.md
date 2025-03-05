@@ -26,4 +26,3 @@ docker-compose exec php bash
 php artisan migrate:fresh --env=testing
 ./vendor/bin/phpunit
 ```
-※.env.testingにもStripeのAPIキーを設定してください。
