@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'スタッフ一覧ページ')
+@section('title', 'スタッフ一覧ページ（管理者）')
 
 @section('css')
 <link rel="stylesheet" href="{{asset('css/admin-staff-index.css')}}">

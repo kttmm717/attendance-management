@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', '勤怠詳細ページ')
+@section('title', '勤怠詳細ページ（管理者）')
 
 @section('css')
 <link rel="stylesheet" href="{{asset('css/admin-attendance-show.css')}}">

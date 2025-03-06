@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', '申請一覧ページ')
+@section('title', '修正申請承認ページ（管理者）')
 
 @section('css')
 <link rel="stylesheet" href="{{asset('css/approval.css')}}">
